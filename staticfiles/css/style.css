@@ -1,0 +1,11 @@
+body {
+	padding: 70px 0;
+}
+
+h1 {
+	display: none;
+}
+
+.main {
+	height: 500px;
+}

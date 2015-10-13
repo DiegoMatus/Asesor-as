@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% load static from static %}
+
+{% block style %}{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<h1>Articles</h1>
+<ul>
+{% for student in object_list %}
+    <li>{{ student.name|date }} - {{ student.matricula }}</li>
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
+</ul>
+{% endblock %}

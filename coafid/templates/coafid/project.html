@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Control de asesorías{% endblock %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="{% static "datatables/datatables.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+{% endblock %}
+
+{% block content %}
+	<section class="container main">
+		<table id="students" class="display">
+		    <thead>
+		        <tr>
+		            <th></th>
+		            <th>Name</th>
+		            <th>Description</th>
+		            <th>Kind</th>
+		            <th>Prorogation</th>
+		            <th>Director</th>
+		            <th>Coodirector</th>
+		            <th>Coodirector</th>
+		            <th>Reader1</th>
+		            <th>Reader2</th>
+		            <th>Student</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	{% for data in project %}
+			        <tr>
+			            <td>{{ data }}</td>
+			            <td>{{ data }} {{ data }}</td>
+			        </tr>
+			    {% empty %}
+			    	No hay datos del proyecto
+		        {% endfor %}
+		    </tbody>
+		</table>
+	</section>
+{% endblock %}
+
+{% block scripts %}
+	<script src="{% static "datatables/datatables.min.js" %}" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="{% static "js/scripts.js" %}" type="text/javascript" charset="utf-8" async defer></script>
+{% endblock %}

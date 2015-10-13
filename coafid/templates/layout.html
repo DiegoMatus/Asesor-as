@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% load static from staticfiles %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!--Block title-->
+        <title>{% block title %}Control de asesorías{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+        <!--Block style-->
+        {% block style %}{% endblock %}
+    </head>
+
+    <body>
+        <h1>Control de Asesorías Facultad de Idiomas</h1>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url "index" %}">
+                        <img src="" alt="Logo"/>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <!--Block content-->
+        {% block content %}{% endblock %}
+
+        <footer class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+            	<div class="text-center">
+	                <p>Universidad Veracruzana</p>
+	                <p>Centro de Auto Acceso de la Facultad de idiomas</p>
+            	</div>
+            </div>
+        </footer>
+    </body>
+
+    <script src="{% static "js/jquery.min.js" %}" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="{% static "js/bootstrap.min.js" %}" type="text/javascript" charset="utf-8" async defer></script>
+    {% block scripts %}{% endblock %}
+</html>

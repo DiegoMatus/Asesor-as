@@ -109,7 +109,7 @@ class Advisory(models.Model):
         verbose_name_plural = 'Asesorías'
 
     def save(self):
-        self.slug = self.name
+        self.slug = self.number
         super(Advisory, self).save()
 
     def __str__(self):

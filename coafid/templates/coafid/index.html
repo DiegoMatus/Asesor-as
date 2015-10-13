@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Control de asesorías{% endblock %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="{% static "datatables/datatables.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+{% endblock %}
+
+{% block content %}
+	<section class="container main">
+		<table id="students" class="display">
+		    <thead>
+		        <tr>
+		            <th></th>
+		            <th>Matrícula</th>
+		            <th>Nombre</th>
+		            <th>Proyecto</th>
+		            <th>Director</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	{% for project in projects %}
+			    	{% url "student" project.student.slug as student_url %}
+			    	{% url "project" project.slug as project_url %}
+			        <tr>
+			            <td>
+			            	<img src="{{ project.student.image.url }}" alt="student"/>
+			            </td>
+			            <td>
+			            	<a href="{{student_url}}" title="">{{ project.student.matricula }}</a>
+			            </td>
+			            <td>
+			            	<a href="{{student_url}}" title="">{{ project.student.name }} {{ project.student.lastname }}</a>
+			            </td>
+			            <td>
+			            	<a href="{{project_url}}" title="">{{ project.name }}</a>
+			            </td>
+			            <td>{{ project.director.name }} {{ project.director.lastname }}</td>
+			        </tr>
+			    {% empty %}
+    				<li>No hay alumnos registrados aún.</li>
+		        {% endfor %}
+		    </tbody>
+		</table>
+	</section>
+{% endblock %}
+
+{% block scripts %}
+	<script src="{% static "datatables/datatables.min.js" %}" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="{% static "js/scripts.js" %}" type="text/javascript" charset="utf-8" async defer></script>
+{% endblock %}

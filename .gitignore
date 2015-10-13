@@ -1,8 +1,6 @@
-db.sqlite3
-images/
-env/
-static/
-
-images
 env
-static
+db.sqlite3
+staticfiles
+media
+*.pyc
+
